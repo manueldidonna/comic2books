@@ -11,6 +11,18 @@
 		946301912C48369600A4E2EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301902C48369600A4E2EE /* ContentView.swift */; };
 		946301932C48369700A4E2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946301922C48369700A4E2EE /* Assets.xcassets */; };
 		946301962C48369700A4E2EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946301952C48369700A4E2EE /* Preview Assets.xcassets */; };
+		9463019E2C4878E900A4E2EE /* go-comic-converter-arm in Resources */ = {isa = PBXBuildFile; fileRef = 9463019D2C4878E900A4E2EE /* go-comic-converter-arm */; };
+		946301A32C487DFF00A4E2EE /* ImportedComicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A22C487DFF00A4E2EE /* ImportedComicsList.swift */; };
+		946301A62C48842000A4E2EE /* UTType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A52C48842000A4E2EE /* UTType+Extensions.swift */; };
+		946301A92C488C0D00A4E2EE /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A82C488C0D00A4E2EE /* Comic.swift */; };
+		946B0C582C491CD900A56434 /* EPUBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C572C491CD900A56434 /* EPUBRequest.swift */; };
+		946B0C5A2C491E0500A56434 /* Process+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C592C491E0500A56434 /* Process+Extensions.swift */; };
+		946B0C5C2C493E0400A56434 /* ConverterOptionsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C5B2C493E0400A56434 /* ConverterOptionsPanel.swift */; };
+		946B0C5E2C49470C00A56434 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C5D2C49470C00A56434 /* Device.swift */; };
+		946B0C622C497F2F00A56434 /* ConverterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C612C497F2F00A56434 /* ConverterScreen.swift */; };
+		946EB08C2C4D30EF00EE4044 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 946EB08B2C4D30EF00EE4044 /* Algorithms */; };
+		946EB08E2C4D350D00EE4044 /* ConvertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946EB08D2C4D350D00EE4044 /* ConvertButton.swift */; };
+		94DA0ED42C4A455B0036F34F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA0ED32C4A455B0036F34F /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +32,17 @@
 		946301922C48369700A4E2EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946301952C48369700A4E2EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		946301972C48369700A4E2EE /* Comic2Books.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Comic2Books.entitlements; sourceTree = "<group>"; };
+		9463019D2C4878E900A4E2EE /* go-comic-converter-arm */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "go-comic-converter-arm"; sourceTree = "<group>"; };
+		946301A22C487DFF00A4E2EE /* ImportedComicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedComicsList.swift; sourceTree = "<group>"; };
+		946301A52C48842000A4E2EE /* UTType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Extensions.swift"; sourceTree = "<group>"; };
+		946301A82C488C0D00A4E2EE /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		946B0C572C491CD900A56434 /* EPUBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBRequest.swift; sourceTree = "<group>"; };
+		946B0C592C491E0500A56434 /* Process+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Process+Extensions.swift"; sourceTree = "<group>"; };
+		946B0C5B2C493E0400A56434 /* ConverterOptionsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterOptionsPanel.swift; sourceTree = "<group>"; };
+		946B0C5D2C49470C00A56434 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		946B0C612C497F2F00A56434 /* ConverterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterScreen.swift; sourceTree = "<group>"; };
+		946EB08D2C4D350D00EE4044 /* ConvertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertButton.swift; sourceTree = "<group>"; };
+		94DA0ED32C4A455B0036F34F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946EB08C2C4D30EF00EE4044 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +62,7 @@
 			children = (
 				9463018D2C48369600A4E2EE /* Comic2Books */,
 				9463018C2C48369600A4E2EE /* Products */,
+				946301A42C487FF000A4E2EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,11 +77,12 @@
 		9463018D2C48369600A4E2EE /* Comic2Books */ = {
 			isa = PBXGroup;
 			children = (
-				9463018E2C48369600A4E2EE /* Comic2BooksApp.swift */,
-				946301902C48369600A4E2EE /* ContentView.swift */,
-				946301922C48369700A4E2EE /* Assets.xcassets */,
+				9463019D2C4878E900A4E2EE /* go-comic-converter-arm */,
 				946301972C48369700A4E2EE /* Comic2Books.entitlements */,
+				946301922C48369700A4E2EE /* Assets.xcassets */,
+				946301A02C487DB800A4E2EE /* App */,
 				946301942C48369700A4E2EE /* Preview Content */,
+				946301A12C487DC800A4E2EE /* Scripts */,
 			);
 			path = Comic2Books;
 			sourceTree = "<group>";
@@ -67,6 +93,79 @@
 				946301952C48369700A4E2EE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		946301A02C487DB800A4E2EE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				946EB0902C4D7E0500EE4044 /* Extensions */,
+				9463018E2C48369600A4E2EE /* Comic2BooksApp.swift */,
+				946301902C48369600A4E2EE /* ContentView.swift */,
+				946301A72C488C0200A4E2EE /* Models */,
+				946B0C5F2C496C9A00A56434 /* UI */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		946301A12C487DC800A4E2EE /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		946301A42C487FF000A4E2EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		946301A72C488C0200A4E2EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94DA0ED32C4A455B0036F34F /* AppState.swift */,
+				946301A82C488C0D00A4E2EE /* Comic.swift */,
+				946B0C572C491CD900A56434 /* EPUBRequest.swift */,
+				946B0C5D2C49470C00A56434 /* Device.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		946B0C5F2C496C9A00A56434 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				946B0C602C496CA000A56434 /* Converter */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		946B0C602C496CA000A56434 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				946EB08F2C4D7CF300EE4044 /* Components */,
+				946B0C612C497F2F00A56434 /* ConverterScreen.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		946EB08F2C4D7CF300EE4044 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				946301A22C487DFF00A4E2EE /* ImportedComicsList.swift */,
+				946B0C5B2C493E0400A56434 /* ConverterOptionsPanel.swift */,
+				946EB08D2C4D350D00EE4044 /* ConvertButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		946EB0902C4D7E0500EE4044 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				946B0C592C491E0500A56434 /* Process+Extensions.swift */,
+				946301A52C48842000A4E2EE /* UTType+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +184,9 @@
 			dependencies = (
 			);
 			name = Comic2Books;
+			packageProductDependencies = (
+				946EB08B2C4D30EF00EE4044 /* Algorithms */,
+			);
 			productName = Comic2Books;
 			productReference = 9463018B2C48369600A4E2EE /* Comic2Books.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +215,9 @@
 				Base,
 			);
 			mainGroup = 946301822C48369600A4E2EE;
+			packageReferences = (
+				946EB08A2C4D30EF00EE4044 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
 			productRefGroup = 9463018C2C48369600A4E2EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9463019E2C4878E900A4E2EE /* go-comic-converter-arm in Resources */,
 				946301962C48369700A4E2EE /* Preview Assets.xcassets in Resources */,
 				946301932C48369700A4E2EE /* Assets.xcassets in Resources */,
 			);
@@ -139,8 +245,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946B0C5A2C491E0500A56434 /* Process+Extensions.swift in Sources */,
+				946B0C5C2C493E0400A56434 /* ConverterOptionsPanel.swift in Sources */,
+				946B0C582C491CD900A56434 /* EPUBRequest.swift in Sources */,
+				946B0C5E2C49470C00A56434 /* Device.swift in Sources */,
+				946301A62C48842000A4E2EE /* UTType+Extensions.swift in Sources */,
 				946301912C48369600A4E2EE /* ContentView.swift in Sources */,
+				94DA0ED42C4A455B0036F34F /* AppState.swift in Sources */,
+				946B0C622C497F2F00A56434 /* ConverterScreen.swift in Sources */,
+				946301A92C488C0D00A4E2EE /* Comic.swift in Sources */,
 				9463018F2C48369600A4E2EE /* Comic2BooksApp.swift in Sources */,
+				946301A32C487DFF00A4E2EE /* ImportedComicsList.swift in Sources */,
+				946EB08E2C4D350D00EE4044 /* ConvertButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +457,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		946EB08A2C4D30EF00EE4044 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		946EB08B2C4D30EF00EE4044 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 946EB08A2C4D30EF00EE4044 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 946301832C48369600A4E2EE /* Project object */;
 }
