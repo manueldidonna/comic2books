@@ -15,6 +15,6 @@ struct Comic2BooksApp: App {
         .frame(minWidth: 800, idealWidth: 1000, minHeight: 480)
     }
     .windowStyle(.hiddenTitleBar)
-    .windowToolbarStyle(.unifiedCompact(showsTitle: false))
+    .windowToolbarStyle(.unified(showsTitle: false))
   }
 }

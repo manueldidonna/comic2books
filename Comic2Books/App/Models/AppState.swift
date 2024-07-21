@@ -27,6 +27,10 @@ final class AppState {
     importedComics = currentComics.uniqued(on: \.location)
   }
 
+  func removeAllComics() {
+    importedComics.removeAll()
+  }
+
   func removeComic(with id: Comic.ID) {
     guard let index = importedComics.firstIndex(where: { $0.id == id }) else { return }
     importedComics.remove(at: index)

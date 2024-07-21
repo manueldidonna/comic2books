@@ -26,6 +26,15 @@ struct ConverterScreen: View {
     .modifier(ComicsImporter(isTargeted: $dropping) { comics in
       appState.importComics(comics)
     })
+    .toolbar {
+      ToolbarItem(placement: .secondaryAction) {
+        Button(action: { appState.removeAllComics() }) {
+          Image(systemName: "trash")
+        }
+        .help("Remove all comics")
+        .disabled(appState.importedComics.isEmpty)
+      }
+    }
   }
 }
 
@@ -74,7 +83,7 @@ private struct ImportComicsToolbarButton: ToolbarContent {
   @State private var importing = false
 
   var body: some ToolbarContent {
-    ToolbarItem(placement: .primaryAction) {
+    ToolbarItem(placement: .navigation) {
       Button(action: { importing = true }) {
         Image(systemName: "plus")
       }
