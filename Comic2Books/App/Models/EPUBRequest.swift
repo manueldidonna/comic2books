@@ -11,7 +11,7 @@ struct EPUBRequest: Sendable {
   static let outputDirectory: URL = .downloadsDirectory.appending(path: "Comic2Books")
 
   struct Options: Hashable, Equatable, Sendable {
-    var device: Device = .standard
+    var device: Device = .standardResolution
     var useMangaReadingDirection: Bool = false
     var grayscale: Bool = false
     var losslessCompression: Bool = false
