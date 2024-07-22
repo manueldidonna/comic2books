@@ -18,6 +18,7 @@ struct EPUBRequest: Sendable {
     var compressionQuality: Double = 85
     var resizeToFitDeviceSize: Bool = true
     var appleBooksCompatibility: Bool = false
+    var sendToKindleCompatibility: Bool = true
     var autoSplitDoublePage: Bool = true
     var keepDoublePageIfSplit: Bool = true
     var hasCover: Bool = true
@@ -42,6 +43,9 @@ struct EPUBRequest: Sendable {
       "-aspect-ratio=0",
       "-crop=0",
       "-strip",
+      options.sendToKindleCompatibility
+        && !options.appleBooksCompatibility
+        && options.device.group == "kindle" ? "-limitmb=200" : "",
       "-hascover=\(options.hasCover || options.appleBooksCompatibility)",
       "-titlepage=\(options.titlePage && !options.appleBooksCompatibility ? 1 : 0)",
       options.losslessCompression ? "-format=png" : "-format=jpeg -quality=\(max(0, min(100, Int(options.compressionQuality))))",

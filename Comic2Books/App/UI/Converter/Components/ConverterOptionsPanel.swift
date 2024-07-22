@@ -71,6 +71,12 @@ struct ConverterOptionsPanel: View {
             Text("Degree of loss in the compression process")
           }
         }
+        if appState.converterOptions.device.group == "kindle" && !appState.converterOptions.appleBooksCompatibility {
+          Toggle(isOn: $appState.converterOptions.sendToKindleCompatibility) {
+            Text("SendToKindle")
+            Text("Limit output to 200MB for upload via SendToKindle")
+          }
+        }
       }
 
       Section {
