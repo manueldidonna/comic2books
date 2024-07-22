@@ -27,12 +27,10 @@ struct EPUBRequest: Sendable {
   }
 
   private let commands: [String]
-  private let tempURL: URL
   private let destURL: URL
 
   init(comic: Comic, options: Options) {
     let script = Bundle.main.path(forResource: "go-comic-converter-arm", ofType: nil)!
-    tempURL = URL.temporaryDirectory.appending(path: comic.title + ".epub")
     destURL = Self.outputDirectory.appending(path: comic.title + ".epub")
     commands = [
       script,
@@ -53,14 +51,22 @@ struct EPUBRequest: Sendable {
       "-title \"\(comic.title)\"",
       "-author \"\(comic.author)\"",
       !options.resizeToFitDeviceSize ? "-noresize" : "",
-      "-output \"\(tempURL.path(percentEncoded: false))\"",
+      "-output \"\(destURL.path(percentEncoded: false))\"",
       "-input \"\(comic.location.path(percentEncoded: false))\"",
       "-json",
     ]
   }
 
   func execute(onProgress: ((Double) -> Void)? = nil) async throws {
+    try? FileManager.default.createDirectory(at: Self.outputDirectory, withIntermediateDirectories: true)
     let task = try bash(commands.joined(separator: " "))
+    defer {
+      if task.isRunning {
+        task.terminate()
+        deleteTempFiles()
+      }
+    }
+
     let output = task.standardOutput as! Pipe
 
     // Listen for progress
@@ -75,13 +81,13 @@ struct EPUBRequest: Sendable {
     for try await progress in progresses {
       onProgress?(progress)
     }
+  }
 
-    // Move epub to output directory
-    do {
-      try? FileManager.default.createDirectory(at: Self.outputDirectory, withIntermediateDirectories: true)
-      try FileManager.default.moveItem(at: tempURL, to: destURL)
-    } catch {
-      try? FileManager.default.removeItem(at: tempURL)
+  private func deleteTempFiles() {
+    let fm = FileManager.default
+    guard let files = try? fm.contentsOfDirectory(at: Self.outputDirectory, includingPropertiesForKeys: [.pathKey]) else { return }
+    for file in files where file.path().hasSuffix(".tmp") {
+      try? fm.removeItem(at: file)
     }
   }
 }
