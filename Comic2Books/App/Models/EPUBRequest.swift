@@ -9,6 +9,7 @@ import Foundation
 
 struct EPUBRequest: Sendable {
   static let outputDirectory: URL = .downloadsDirectory.appending(path: "Comic2Books")
+  static let scriptPath = Bundle.main.goComicConverterPath
 
   struct Options: Hashable, Equatable, Sendable {
     var device: Device = .standardResolution
@@ -31,10 +32,9 @@ struct EPUBRequest: Sendable {
   private let destURL: URL
 
   init(comic: Comic, options: Options) {
-    let script = Bundle.main.path(forResource: "go-comic-converter-arm", ofType: nil)!
     destURL = Self.outputDirectory.appending(path: comic.title + ".epub")
     commands = [
-      script,
+      Self.scriptPath,
       options.appleBooksCompatibility
         ? "-applebookcompatibility"
         : "-autosplitdoublepage=\(options.autoSplitDoublePage) -keepdoublepageifsplitted=\(options.keepDoublePageIfSplit)",
@@ -113,5 +113,19 @@ private extension EPUBRequest {
       let stepProgress = Double(data.progress.current) / Double(data.progress.total)
       return 0.95 * stepProgress
     }
+  }
+}
+
+private extension Bundle {
+  var goComicConverterPath: String {
+    var utsname = utsname()
+    uname(&utsname)
+    let machine = withUnsafePointer(to: &utsname.machine) {
+      $0.withMemoryRebound(to: CChar.self, capacity: Int(_SYS_NAMELEN)) {
+        String(cString: $0)
+      }
+    }
+    let archSuffix = machine == "arm64" ? "silicon" : "intel"
+    return path(forResource: "go-comic-converter-\(archSuffix)", ofType: nil)!
   }
 }

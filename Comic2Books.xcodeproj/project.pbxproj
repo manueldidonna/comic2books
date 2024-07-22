@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94565FD02C4F2471007E8DFD /* go-comic-converter-intel in Resources */ = {isa = PBXBuildFile; fileRef = 94565FCF2C4F2471007E8DFD /* go-comic-converter-intel */; };
 		9463018F2C48369600A4E2EE /* Comic2BooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463018E2C48369600A4E2EE /* Comic2BooksApp.swift */; };
 		946301912C48369600A4E2EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301902C48369600A4E2EE /* ContentView.swift */; };
 		946301932C48369700A4E2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946301922C48369700A4E2EE /* Assets.xcassets */; };
 		946301962C48369700A4E2EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946301952C48369700A4E2EE /* Preview Assets.xcassets */; };
-		9463019E2C4878E900A4E2EE /* go-comic-converter-arm in Resources */ = {isa = PBXBuildFile; fileRef = 9463019D2C4878E900A4E2EE /* go-comic-converter-arm */; };
+		9463019E2C4878E900A4E2EE /* go-comic-converter-silicon in Resources */ = {isa = PBXBuildFile; fileRef = 9463019D2C4878E900A4E2EE /* go-comic-converter-silicon */; };
 		946301A32C487DFF00A4E2EE /* ImportedComicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A22C487DFF00A4E2EE /* ImportedComicsList.swift */; };
 		946301A62C48842000A4E2EE /* UTType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A52C48842000A4E2EE /* UTType+Extensions.swift */; };
 		946301A92C488C0D00A4E2EE /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A82C488C0D00A4E2EE /* Comic.swift */; };
@@ -26,13 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		94565FCF2C4F2471007E8DFD /* go-comic-converter-intel */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "go-comic-converter-intel"; sourceTree = "<group>"; };
 		9463018B2C48369600A4E2EE /* Comic2Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comic2Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9463018E2C48369600A4E2EE /* Comic2BooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic2BooksApp.swift; sourceTree = "<group>"; };
 		946301902C48369600A4E2EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		946301922C48369700A4E2EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946301952C48369700A4E2EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		946301972C48369700A4E2EE /* Comic2Books.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Comic2Books.entitlements; sourceTree = "<group>"; };
-		9463019D2C4878E900A4E2EE /* go-comic-converter-arm */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "go-comic-converter-arm"; sourceTree = "<group>"; };
+		9463019D2C4878E900A4E2EE /* go-comic-converter-silicon */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "go-comic-converter-silicon"; sourceTree = "<group>"; };
 		946301A22C487DFF00A4E2EE /* ImportedComicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedComicsList.swift; sourceTree = "<group>"; };
 		946301A52C48842000A4E2EE /* UTType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Extensions.swift"; sourceTree = "<group>"; };
 		946301A82C488C0D00A4E2EE /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
@@ -109,7 +111,8 @@
 		946301A12C487DC800A4E2EE /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				9463019D2C4878E900A4E2EE /* go-comic-converter-arm */,
+				94565FCF2C4F2471007E8DFD /* go-comic-converter-intel */,
+				9463019D2C4878E900A4E2EE /* go-comic-converter-silicon */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -232,7 +235,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9463019E2C4878E900A4E2EE /* go-comic-converter-arm in Resources */,
+				9463019E2C4878E900A4E2EE /* go-comic-converter-silicon in Resources */,
+				94565FD02C4F2471007E8DFD /* go-comic-converter-intel in Resources */,
 				946301962C48369700A4E2EE /* Preview Assets.xcassets in Resources */,
 				946301932C48369700A4E2EE /* Assets.xcassets in Resources */,
 			);
@@ -386,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Comic2Books/Comic2Books.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -400,7 +405,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.manuelldidonna.Comic2Books;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -413,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Comic2Books/Comic2Books.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -427,7 +433,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.manuelldidonna.Comic2Books;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
