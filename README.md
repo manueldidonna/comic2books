@@ -4,7 +4,7 @@
   </a>
   <h1 align="center">Comic2Books</h1>
   <p align="center">
-    A macOS application to convert manga/comics into EPUB for Apple Books or any e-reader device.
+   A macOS application to convert manga and comics into EPUB format for Apple Books and other e-reader devices
   </p>
    <img src="art/home-screen.png" alt="Home Screen">
 </div>
@@ -13,10 +13,10 @@
 
 # Features
 
-- Support input from zip, cbz, rar, cbr and pdf
+- Support input from ZIP, CBZ, RAR, CBR, and PDF files
 - Customize output image quality
-- Intelligent cropping (support removing even page numbers)
-- Auto contrast
-- Auto split double page (for easy read on portrait)
-- Split EPUB size for easy upload through Amazon Service
-- Apple Book Compatibility Mode
+- Intelligent cropping (supports removing even page numbers)
+- Enhance contrast automatically or manually
+- Auto-split double pages (for easy reading in portrait mode)
+- Limit EPUB size for uploads via Amazon service
+- Apple Books compatibility mode
