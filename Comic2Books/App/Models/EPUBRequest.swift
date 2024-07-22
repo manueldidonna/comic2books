@@ -11,12 +11,19 @@ struct EPUBRequest: Sendable {
   static let outputDirectory: URL = .downloadsDirectory.appending(path: "Comic2Books")
 
   struct Options: Hashable, Equatable, Sendable {
-    var device: Device
-    var useMangaReadingDirection: Bool
-    var grayscale: Bool
-    var losslessCompression: Bool
-    var compressionQuality: Double
-    var resizeToFitDeviceSize: Bool
+    var device: Device = .standard
+    var useMangaReadingDirection: Bool = false
+    var grayscale: Bool = false
+    var losslessCompression: Bool = false
+    var compressionQuality: Double = 85
+    var resizeToFitDeviceSize: Bool = true
+    var appleBooksCompatibility: Bool = false
+    var autoSplitDoublePage: Bool = true
+    var keepDoublePageIfSplit: Bool = true
+    var hasCover: Bool = true
+    var titlePage: Bool = true
+    var improveContrastAutomatically: Bool = true
+    var contrastReadjustement: Double = 0
   }
 
   private let commands: [String]
@@ -29,16 +36,19 @@ struct EPUBRequest: Sendable {
     destURL = Self.outputDirectory.appending(path: comic.title + ".epub")
     commands = [
       script,
-      "-applebookcompatibility",
-      "-profile=\(options.device.id)",
-      "-autocontrast",
+      options.appleBooksCompatibility
+        ? "-applebookcompatibility"
+        : "-autosplitdoublepage=\(options.autoSplitDoublePage) -keepdoublepageifsplitted=\(options.keepDoublePageIfSplit)",
+      "-profile=\(options.device.code)",
       "-noblankimage=0",
       "-aspect-ratio=0",
       "-crop=0",
       "-strip",
-      "-titlepage=0",
-      options.losslessCompression ? "-format=png" : "-format=jpeg -quality=\(Int(options.compressionQuality))",
-      "-manga=\(options.useMangaReadingDirection ? 1 : 0)",
+      "-hascover=\(options.hasCover || options.appleBooksCompatibility)",
+      "-titlepage=\(options.titlePage && !options.appleBooksCompatibility ? 1 : 0)",
+      options.losslessCompression ? "-format=png" : "-format=jpeg -quality=\(max(0, min(100, Int(options.compressionQuality))))",
+      "-manga=\(options.useMangaReadingDirection)",
+      options.improveContrastAutomatically ? "-autocontrast" : "-autocontrast=false -contrast=\(max(-100, min(100, Int(options.contrastReadjustement))))",
       "-grayscale=\(options.grayscale ? 1 : 0)",
       "-title \"\(comic.title)\"",
       "-author \"\(comic.author)\"",
@@ -50,15 +60,9 @@ struct EPUBRequest: Sendable {
   }
 
   func execute(onProgress: ((Double) -> Void)? = nil) async throws {
-    // Execute script
-    // let bash = Process.bash()
-    // let output = Pipe()
-    // bash.standardOutput = output
-    // try bash.run(command: commands.joined(separator: " "))
-
     let task = try bash(commands.joined(separator: " "))
     let output = task.standardOutput as! Pipe
-    
+
     // Listen for progress
     let jsonDecoder = JSONDecoder()
     let progresses = output.bytesToRead.lines.compactMap { line -> Double? in

@@ -13,14 +13,7 @@ import Observation
 final class AppState {
   private(set) var importedComics: [Comic] = []
 
-  var converterOptions = EPUBRequest.Options(
-    device: .standard,
-    useMangaReadingDirection: false,
-    grayscale: false,
-    losslessCompression: false,
-    compressionQuality: 90,
-    resizeToFitDeviceSize: true
-  )
+  var converterOptions = EPUBRequest.Options()
 
   func importComics(_ comics: [Comic]) {
     let currentComics = importedComics + comics

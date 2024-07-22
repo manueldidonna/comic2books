@@ -77,7 +77,6 @@
 		9463018D2C48369600A4E2EE /* Comic2Books */ = {
 			isa = PBXGroup;
 			children = (
-				9463019D2C4878E900A4E2EE /* go-comic-converter-arm */,
 				946301972C48369700A4E2EE /* Comic2Books.entitlements */,
 				946301922C48369700A4E2EE /* Assets.xcassets */,
 				946301A02C487DB800A4E2EE /* App */,
@@ -110,6 +109,7 @@
 		946301A12C487DC800A4E2EE /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				9463019D2C4878E900A4E2EE /* go-comic-converter-arm */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";

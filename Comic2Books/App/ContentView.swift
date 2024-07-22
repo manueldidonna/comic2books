@@ -10,8 +10,10 @@ import SwiftUI
 struct ContentView: View {
   @State private var state = AppState()
   var body: some View {
-    ConverterScreen()
-      .environment(state)
+    NavigationStack {
+      ConverterScreen()
+    }
+    .environment(state)
   }
 }
 

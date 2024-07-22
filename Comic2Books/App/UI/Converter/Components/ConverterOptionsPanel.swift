@@ -5,6 +5,7 @@
 //  Created by Manuel Di Donna on 18/07/24.
 //
 
+import Algorithms
 import OSLog
 import SwiftUI
 
@@ -18,24 +19,46 @@ struct ConverterOptionsPanel: View {
     @Bindable var appState = appState
     Form {
       Section {
+        Toggle(isOn: $appState.converterOptions.appleBooksCompatibility) {
+          Text("\(Image(systemName: "apple.logo")) Books")
+          Text("Export in a format compatible with Apple Books")
+        }
+      }
+      Section {
         Toggle(isOn: $appState.converterOptions.useMangaReadingDirection) {
           Text("Manga")
           Text("Set reading direction to Right to Left")
         }
-      }
-      Section {
-        Picker(selection: $appState.converterOptions.device) {
-          ForEach(Device.get(inGroup: nil)) { device in
-            Text(device.name).tag(device)
+        if !appState.converterOptions.appleBooksCompatibility {
+          Toggle(isOn: $appState.converterOptions.hasCover) {
+            Text("Has Cover")
+            Text("The first page will be used as a cover")
           }
-        } label: {
-          Text("Resolution")
-          Text(appState.converterOptions.device.resolution)
+          Toggle(isOn: $appState.converterOptions.titlePage) {
+            Text("Title Page")
+            Text("Show title on the first page")
+          }
+
+          Toggle(isOn: $appState.converterOptions.autoSplitDoublePage) {
+            Text("Split Double Page")
+            Text("Split page when width > height")
+          }
+          if appState.converterOptions.autoSplitDoublePage {
+            Toggle(isOn: $appState.converterOptions.keepDoublePageIfSplit) {
+              Text("Keep Double Page")
+              Text("Keep double page if split")
+            }
+          }
         }
+      }
+
+      Section {
+        DevicePicker(selection: $appState.converterOptions.device)
         Toggle(isOn: $appState.converterOptions.resizeToFitDeviceSize) {
           Text("Resize")
           Text("Reduce image size if exceed device size")
         }
+
         Picker(selection: $appState.converterOptions.losslessCompression) {
           Text("Lossless").tag(true)
           Text("Lossy").tag(false)
@@ -48,21 +71,55 @@ struct ConverterOptionsPanel: View {
             Text("Degree of loss in the compression process")
           }
         }
+      }
+
+      Section {
         Toggle(isOn: $appState.converterOptions.grayscale) {
           Text("Grayscale")
           Text("Ideal for eInk devices")
         }
+        Toggle(isOn: $appState.converterOptions.improveContrastAutomatically) {
+          Text("Auto Contrast")
+          Text("Improve contrast automatically")
+        }
+        if !appState.converterOptions.improveContrastAutomatically {
+          Stepper(value: $appState.converterOptions.contrastReadjustement, in: -100 ... 100, step: 1, format: .number) {
+            Text("Contrast readjustement")
+          }
+        }
       }
     }
     .formStyle(.grouped)
+    .scrollIndicators(.hidden, axes: .vertical)
     .safeAreaInset(edge: .bottom) {
       ConvertButton()
     }
-    .frame(width: 280)
+    .frame(width: 340)
+  }
+}
+
+private struct DevicePicker: View {
+  @Binding var selection: Device
+  private static let devices = Device.all.grouped(by: \.group).sorted(using: KeyPathComparator(\.key))
+
+  var body: some View {
+    Picker(selection: $selection) {
+      ForEach(Self.devices, id: \.key) { group, devices in
+        Section(group?.uppercased() ?? "TABLET") {
+          ForEach(devices) { device in
+            Text(device.name).tag(device)
+          }
+        }
+      }
+    } label: {
+      Text("Device")
+      Text(selection.resolution)
+    }
   }
 }
 
 #Preview {
   ConverterOptionsPanel()
+    .frame(height: 600)
     .environment(AppState())
 }
