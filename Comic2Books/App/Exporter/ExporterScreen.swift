@@ -168,7 +168,7 @@ extension ExporterScreen {
 
       try await withThrowingTaskGroup(of: Void.self) { group in
         for comic in batch {
-          group.addTask { @MainActor in
+          group.addTask {
             try await convertSingleComic(comic)
           }
         }
@@ -179,7 +179,6 @@ extension ExporterScreen {
     }
   }
 
-  @MainActor
   private func convertSingleComic(_ comic: Comic) async throws {
     let converter = EPUBConverter()
     let request = EPUBRequest(

@@ -32,8 +32,7 @@ actor EPUBConverter {
       }
     }
 
-    let command = "\(Bundle.main.goComicConverterPath) \(arguments.joined(separator: " "))"
-    print(command)
+    let command = "\(scriptPath) \(arguments.joined(separator: " "))"
     process.arguments = ["-c", command]
     try process.run()
 
@@ -147,20 +146,16 @@ actor EPUBConverter {
 
     return args
   }
-}
 
-// MARK: - Script Path
-
-extension Bundle {
-  fileprivate var goComicConverterPath: String {
+  private var scriptPath: String {
     var utsname = utsname()
-    uname(&utsname)
-    let machine = withUnsafePointer(to: &utsname.machine) {
-      $0.withMemoryRebound(to: CChar.self, capacity: Int(_SYS_NAMELEN)) {
-        String(cString: $0)
+    unsafe uname(&utsname)
+    let machine = unsafe withUnsafePointer(to: &utsname.machine) {
+      unsafe $0.withMemoryRebound(to: CChar.self, capacity: Int(_SYS_NAMELEN)) {
+        unsafe String(cString: $0)
       }
     }
     let archSuffix = machine == "arm64" ? "silicon" : "intel"
-    return path(forResource: "go-comic-converter-\(archSuffix)", ofType: nil)!
+    return Bundle.main.path(forResource: "go-comic-converter-\(archSuffix)", ofType: nil)!
   }
 }
