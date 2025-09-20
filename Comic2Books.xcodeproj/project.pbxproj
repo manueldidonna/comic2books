@@ -11,10 +11,6 @@
 		9463018F2C48369600A4E2EE /* Comic2BooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463018E2C48369600A4E2EE /* Comic2BooksApp.swift */; };
 		946301932C48369700A4E2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946301922C48369700A4E2EE /* Assets.xcassets */; };
 		946301962C48369700A4E2EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946301952C48369700A4E2EE /* Preview Assets.xcassets */; };
-		946301A62C48842000A4E2EE /* UTType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A52C48842000A4E2EE /* UTType+Extensions.swift */; };
-		946301A92C488C0D00A4E2EE /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946301A82C488C0D00A4E2EE /* Comic.swift */; };
-		946B0C582C491CD900A56434 /* EPUBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C572C491CD900A56434 /* EPUBRequest.swift */; };
-		946B0C5E2C49470C00A56434 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946B0C5D2C49470C00A56434 /* Device.swift */; };
 		946EB08C2C4D30EF00EE4044 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 946EB08B2C4D30EF00EE4044 /* Algorithms */; };
 		947610302E7ED2E0008DBA2C /* EPUBConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476102F2E7ED2D9008DBA2C /* EPUBConverter.swift */; };
 		947610362E7EDE34008DBA2C /* go-comic-converter-silicon in Resources */ = {isa = PBXBuildFile; fileRef = 947610352E7EDE34008DBA2C /* go-comic-converter-silicon */; };
@@ -29,10 +25,6 @@
 		946301922C48369700A4E2EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946301952C48369700A4E2EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		946301972C48369700A4E2EE /* Comic2Books.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Comic2Books.entitlements; sourceTree = "<group>"; };
-		946301A52C48842000A4E2EE /* UTType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Extensions.swift"; sourceTree = "<group>"; };
-		946301A82C488C0D00A4E2EE /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
-		946B0C572C491CD900A56434 /* EPUBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBRequest.swift; sourceTree = "<group>"; };
-		946B0C5D2C49470C00A56434 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		9476102F2E7ED2D9008DBA2C /* EPUBConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPUBConverter.swift; sourceTree = "<group>"; };
 		947610352E7EDE34008DBA2C /* go-comic-converter-silicon */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "go-comic-converter-silicon"; sourceTree = "<group>"; };
 		947610372E7EF669008DBA2C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
@@ -42,6 +34,8 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		947610252E7EAD54008DBA2C /* Converter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Converter; sourceTree = "<group>"; };
 		947610312E7ED98C008DBA2C /* Exporter */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Exporter; sourceTree = "<group>"; };
+		9476104A2E7F23E1008DBA2C /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+		9476104F2E7F23E4008DBA2C /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +96,8 @@
 				9476102F2E7ED2D9008DBA2C /* EPUBConverter.swift */,
 				947610252E7EAD54008DBA2C /* Converter */,
 				947610312E7ED98C008DBA2C /* Exporter */,
-				946EB0902C4D7E0500EE4044 /* Extensions */,
-				946301A72C488C0200A4E2EE /* Models */,
+				9476104A2E7F23E1008DBA2C /* Extensions */,
+				9476104F2E7F23E4008DBA2C /* Models */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -124,24 +118,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		946301A72C488C0200A4E2EE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				946301A82C488C0D00A4E2EE /* Comic.swift */,
-				946B0C572C491CD900A56434 /* EPUBRequest.swift */,
-				946B0C5D2C49470C00A56434 /* Device.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		946EB0902C4D7E0500EE4044 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				946301A52C48842000A4E2EE /* UTType+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,6 +136,8 @@
 			fileSystemSynchronizedGroups = (
 				947610252E7EAD54008DBA2C /* Converter */,
 				947610312E7ED98C008DBA2C /* Exporter */,
+				9476104A2E7F23E1008DBA2C /* Extensions */,
+				9476104F2E7F23E4008DBA2C /* Models */,
 			);
 			name = Comic2Books;
 			packageProductDependencies = (
@@ -226,11 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				947610302E7ED2E0008DBA2C /* EPUBConverter.swift in Sources */,
-				946B0C582C491CD900A56434 /* EPUBRequest.swift in Sources */,
-				946B0C5E2C49470C00A56434 /* Device.swift in Sources */,
-				946301A62C48842000A4E2EE /* UTType+Extensions.swift in Sources */,
 				94DA0ED42C4A455B0036F34F /* AppState.swift in Sources */,
-				946301A92C488C0D00A4E2EE /* Comic.swift in Sources */,
 				9463018F2C48369600A4E2EE /* Comic2BooksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
