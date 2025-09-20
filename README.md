@@ -9,7 +9,7 @@
    <img src="art/home-screen.png" alt="Home Screen">
 </div>
 
-> Comic2Books uses [go-comic-converter](https://github.com/celogeek/go-comic-converter) under the hood to process comics, so a special thanks goes to [Celogeek](https://github.com/celogeek)
+> Comic2Books uses [go-comic-converter 2.7.2](https://github.com/celogeek/go-comic-converter) under the hood to process comics, so a special thanks goes to [Celogeek](https://github.com/celogeek)
 
 # Features
 
