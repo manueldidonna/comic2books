@@ -9,7 +9,6 @@ import Foundation
 import UniformTypeIdentifiers
 
 extension UTType {
-  // static let cbr = UTType(mimeType: "application/x-rar")!
   static let cbr = UTType(filenameExtension: "cbr")!
   static let cbz = UTType(filenameExtension: "cbz")!
   static let rar = UTType(filenameExtension: "rar")!

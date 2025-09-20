@@ -1,0 +1,70 @@
+{
+  "color-space-for-untagged-svg-colors" : "display-p3",
+  "fill" : {
+    "automatic-gradient" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "extended-gray:1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "automatic-gradient" : "extended-gray:1.00000,1.00000"
+              }
+            }
+          ],
+          "hidden" : false,
+          "image-name" : "Vector.svg",
+          "name" : "Vector",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              134.26516277200358,
+              88.09713816687767
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "extended-gray:1.00000,1.00000"
+          },
+          "glass" : true,
+          "image-name" : "Vector-3.svg",
+          "name" : "Vector-3",
+          "opacity-specializations" : [
+            {
+              "value" : 0.6
+            },
+            {
+              "appearance" : "tinted",
+              "value" : 0.5
+            }
+          ]
+        }
+      ],
+      "lighting" : "individual",
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.5
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [
+      "macOS"
+    ]
+  }
+}

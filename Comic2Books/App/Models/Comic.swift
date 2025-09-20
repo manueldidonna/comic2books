@@ -11,28 +11,31 @@ import Observation
 @Observable
 final class Comic: NSObject, Identifiable {
   let location: URL
-
-  init(location: URL) {
-    self.location = location
-    inputTitle = location.deletingPathExtension().lastPathComponent
-  }
+  let initialTitle: String
+  let initialAuthor: String
 
   var inputTitle: String = ""
   var inputAuthor: String = ""
+
+  init(location: URL, initialTitle: String, initialAuthor: String = "Comic2Books") {
+    self.location = location
+    self.initialTitle = initialTitle
+    self.initialAuthor = initialAuthor
+    self.inputTitle = initialTitle
+    self.inputAuthor = initialAuthor
+  }
 }
 
 extension Comic {
-  var defaultTitle: String {
-    location.deletingPathExtension().lastPathComponent
+  convenience init(location: URL) {
+    self.init(location: location, initialTitle: location.deletingPathExtension().lastPathComponent)
   }
 
-  var defaultAuthor: String { "Comic2Books" }
-
   var title: String {
-    inputTitle.isEmpty ? defaultTitle : inputTitle
+    inputTitle.isEmpty ? initialTitle : inputTitle
   }
 
   var author: String {
-    inputAuthor.isEmpty ? defaultAuthor : inputAuthor
+    inputAuthor.isEmpty ? initialAuthor : inputAuthor
   }
 }

@@ -9,12 +9,26 @@ import SwiftUI
 
 @main
 struct Comic2BooksApp: App {
+  @State private var state = AppState()
+
   var body: some Scene {
     WindowGroup {
       ContentView()
         .frame(minWidth: 800, idealWidth: 1000, minHeight: 480)
     }
-    .windowStyle(.hiddenTitleBar)
-    .windowToolbarStyle(.unified(showsTitle: false))
+    .environment(state)
+    .windowStyle(.titleBar)
+    .windowToolbarStyle(.unified)
   }
+}
+
+private struct ContentView: View {
+  var body: some View {
+    ConverterScreen()
+  }
+}
+
+#Preview {
+  ContentView()
+    .frame(width: 800)
 }

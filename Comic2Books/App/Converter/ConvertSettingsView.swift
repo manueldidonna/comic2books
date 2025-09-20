@@ -1,15 +1,14 @@
 //
-//  ConvertOptionsPanel.swift
+//  ConvertSettingsView.swift
 //  Comic2Books
 //
-//  Created by Manuel Di Donna on 18/07/24.
+//  Created by Manuel Di Donna on 20/09/25.
 //
 
 import Algorithms
-import OSLog
 import SwiftUI
 
-struct ConverterOptionsPanel: View {
+struct ConvertSettingsView: View {
   @Environment(AppState.self) private var appState
 
   @State private var converting = false
@@ -96,16 +95,12 @@ struct ConverterOptionsPanel: View {
       }
     }
     .formStyle(.grouped)
-    .scrollIndicators(.hidden, axes: .vertical)
-    .safeAreaInset(edge: .bottom) {
-      ConvertButton()
-    }
-    .frame(width: 340)
   }
 }
 
 private struct DevicePicker: View {
   @Binding var selection: Device
+  
   private static let devices = Device.all.grouped(by: \.group).sorted(using: KeyPathComparator(\.key))
 
   var body: some View {
@@ -122,10 +117,4 @@ private struct DevicePicker: View {
       Text(selection.resolution)
     }
   }
-}
-
-#Preview {
-  ConverterOptionsPanel()
-    .frame(height: 600)
-    .environment(AppState())
 }
