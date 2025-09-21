@@ -70,7 +70,7 @@ struct ConvertSettingsView: View {
             Text("Degree of loss in the compression process")
           }
         }
-        if appState.converterOptions.device.group == "kindle" && !appState.converterOptions.appleBooksCompatibility {
+        if appState.converterOptions.device.group == .kindle && !appState.converterOptions.appleBooksCompatibility {
           Toggle(isOn: $appState.converterOptions.sendToKindleCompatibility) {
             Text("SendToKindle")
             Text("Limit output to 200MB for upload via SendToKindle")
@@ -106,7 +106,7 @@ private struct DevicePicker: View {
   var body: some View {
     Picker(selection: $selection) {
       ForEach(Self.devices, id: \.key) { group, devices in
-        Section(group?.uppercased() ?? "TABLET") {
+        Section(group.rawValue.uppercased()) {
           ForEach(devices) { device in
             Text(device.name).tag(device)
           }

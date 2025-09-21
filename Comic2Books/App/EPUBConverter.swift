@@ -101,7 +101,7 @@ actor EPUBConverter {
 
     if options.sendToKindleCompatibility,
       !options.appleBooksCompatibility,
-      options.device.group == "kindle"
+       options.device.group == .kindle
     {
       args.append("-limitmb=200")
     }

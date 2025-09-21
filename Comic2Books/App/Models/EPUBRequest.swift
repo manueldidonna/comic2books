@@ -9,7 +9,7 @@ import Foundation
 
 struct EPUBRequest: Sendable, Equatable, Hashable {
   struct Options: Hashable, Equatable, Sendable {
-    var device: Device = .standardResolution
+    var device: Device = Device.all.first!
     var useMangaReadingDirection: Bool = false
     var grayscale: Bool = false
     var losslessCompression: Bool = false
