@@ -15,6 +15,17 @@ struct Comic2BooksApp: App {
     WindowGroup {
       ContentView()
         .frame(minWidth: 800, idealWidth: 1000, minHeight: 480)
+        .task {
+          do {
+            state.converterOptions = try await .readFromDisk()
+          } catch {
+            print("Failed to read options from disk")
+          }
+        }
+        .task(id: state.converterOptions) {
+          try? await state.converterOptions.saveToDisk()
+        }
+
     }
     .environment(state)
     .windowStyle(.titleBar)

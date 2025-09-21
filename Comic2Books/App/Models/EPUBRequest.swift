@@ -8,7 +8,7 @@
 import Foundation
 
 struct EPUBRequest: Sendable, Equatable, Hashable {
-  struct Options: Hashable, Equatable, Sendable {
+  nonisolated struct Options: Hashable, Equatable, Sendable, Codable {
     var device: Device = Device.all.first!
     var useMangaReadingDirection: Bool = false
     var grayscale: Bool = false
@@ -24,10 +24,33 @@ struct EPUBRequest: Sendable, Equatable, Hashable {
     var improveContrastAutomatically: Bool = true
     var contrastReadjustement: Double = 0
   }
-  
+
   let title: String
   let author: String
   let options: Options
-  
+
   let inputURL: URL
+}
+
+extension EPUBRequest.Options {
+  private nonisolated static let diskURL: URL = .applicationSupportDirectory.appending(
+    path: "converter_options.json"
+  )
+
+  @concurrent
+  func saveToDisk() async throws {
+    let data = try JSONEncoder().encode(self)
+    try data.write(to: Self.diskURL, options: .atomic)
+  }
+
+  @concurrent
+  static func readFromDisk() async throws -> EPUBRequest.Options {
+    guard FileManager.default.fileExists(atPath: diskURL.path) else {
+      return EPUBRequest.Options()
+    }
+
+    let data = try Data(contentsOf: diskURL)
+    let options = try JSONDecoder().decode(EPUBRequest.Options.self, from: data)
+    return options
+  }
 }

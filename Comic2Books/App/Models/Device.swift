@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Device: Hashable, Equatable, Sendable, Identifiable, Codable {
-  enum Group: String, Codable, Hashable, Sendable, CaseIterable, Comparable {
+nonisolated struct Device: Hashable, Equatable, Sendable, Identifiable, Codable {
+  nonisolated enum Group: String, Codable, Hashable, Equatable, Sendable, CaseIterable, Comparable {
     static func < (lhs: Device.Group, rhs: Device.Group) -> Bool {
       lhs.rawValue < rhs.rawValue
     }
-    
+
     case kindle
     case kobo
     case remarkable
@@ -33,7 +33,7 @@ struct Device: Hashable, Equatable, Sendable, Identifiable, Codable {
 }
 
 extension Device {
-  static let all: [Device] = [
+  nonisolated static let all: [Device] = [
     Device(
       code: "SR",
       group: .tablet,
