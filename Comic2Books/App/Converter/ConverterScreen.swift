@@ -72,6 +72,8 @@ extension View {
       self.safeAreaBar(edge: .bottom) {
         if visible {
           ConvertButton()
+            .buttonStyle(.glassProminent)
+            .controlSize(.extraLarge)
             .frame(maxWidth: .infinity, alignment: .leading)
             .scenePadding()
         }
@@ -80,6 +82,8 @@ extension View {
       self.safeAreaInset(edge: .bottom) {
         if visible {
           ConvertButton()
+            .buttonStyle(.borderedProminent)
+            .controlSize(.extraLarge)
             .frame(maxWidth: .infinity, alignment: .leading)
             .scenePadding()
             .background(.regularMaterial)
@@ -99,7 +103,7 @@ private struct ConvertButton: View {
   @State private var exportRequest: ExportRequest?
 
   var body: some View {
-    let button = Button {
+    Button {
       isImporterPresented = true
     } label: {
       Text("Convert")
@@ -119,15 +123,6 @@ private struct ConvertButton: View {
       }
     }
     .comicsExporter(for: $exportRequest)
-    .controlSize(.extraLarge)
-
-    if #available(macOS 26.0, *) {
-      button
-        .buttonStyle(.glassProminent)
-    } else {
-      button
-        .buttonStyle(.borderedProminent)
-    }
   }
 }
 

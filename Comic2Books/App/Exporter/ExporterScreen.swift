@@ -130,7 +130,6 @@ private struct ComicRow: View {
 // MARK: - Conversion Logic
 
 extension ExporterScreen {
-  @MainActor
   private func convertComics() async {
     do {
       let comics = appState.importedComics
@@ -185,7 +184,8 @@ extension ExporterScreen {
       title: comic.title,
       author: comic.author,
       options: appState.converterOptions,
-      inputURL: comic.location
+      useMangaReadingDirection: comic.isManga,
+      inputURL: comic.location,
     )
 
     guard request.inputURL.startAccessingSecurityScopedResource() else {

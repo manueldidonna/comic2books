@@ -10,7 +10,6 @@ import Foundation
 struct EPUBRequest: Sendable, Equatable, Hashable {
   nonisolated struct Options: Hashable, Equatable, Sendable, Codable {
     var device: Device = Device.all.first!
-    var useMangaReadingDirection: Bool = false
     var grayscale: Bool = false
     var losslessCompression: Bool = false
     var compressionQuality: Double = 85
@@ -28,6 +27,7 @@ struct EPUBRequest: Sendable, Equatable, Hashable {
   let title: String
   let author: String
   let options: Options
+  let useMangaReadingDirection: Bool
 
   let inputURL: URL
 }

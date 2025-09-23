@@ -24,10 +24,6 @@ struct ConvertSettingsView: View {
         }
       }
       Section {
-        Toggle(isOn: $appState.converterOptions.useMangaReadingDirection) {
-          Text("Manga")
-          Text("Set reading direction to Right to Left")
-        }
         if !appState.converterOptions.appleBooksCompatibility {
           Toggle(isOn: $appState.converterOptions.hasCover) {
             Text("Has Cover")

@@ -121,7 +121,7 @@ actor EPUBConverter {
     }
 
     // MARK: - Reading & Contrast
-    args.append("-manga=\(options.useMangaReadingDirection)")
+    args.append("-manga=\(request.useMangaReadingDirection)")
 
     if options.improveContrastAutomatically {
       args.append("-autocontrast")

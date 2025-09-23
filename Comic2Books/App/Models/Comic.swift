@@ -17,12 +17,14 @@ final class Comic: NSObject, Identifiable {
   var inputTitle: String = ""
   var inputAuthor: String = ""
 
+  var isManga: Bool = false
+  
   init(location: URL, initialTitle: String, initialAuthor: String = "Comic2Books") {
     self.location = location
     self.initialTitle = initialTitle
     self.initialAuthor = initialAuthor
     self.inputTitle = initialTitle
-    self.inputAuthor = initialAuthor
+    self.inputAuthor = ""
   }
 }
 
