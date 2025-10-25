@@ -34,10 +34,11 @@ struct ConverterScreen: View {
           } label: {
             Image(systemName: "sidebar.right")
           }
-
         }
       }
-      .comicsImporter()
+      .toolbar {
+        ImportToolbar()
+      }
     }
     .inspector(isPresented: $isSettingsVisible) {
       ConvertSettingsView()
@@ -55,14 +56,6 @@ extension View {
         if visible {
           EmptyComicsView()
         }
-      }
-  }
-
-  fileprivate func comicsImporter() -> some View {
-    self
-      .modifier(ComicsDropHandler())
-      .toolbar {
-        ImportToolbar()
       }
   }
 
@@ -135,27 +128,6 @@ private struct EmptyComicsView: View {
       systemImage: "doc.badge.arrow.up",
       description: Text("Support input from zip, cbz, rar, cbr and pdf")
     )
-  }
-}
-
-// MARK: - Drop Handler
-
-private struct ComicsDropHandler: ViewModifier {
-  @Environment(AppState.self) private var appState
-
-  func body(content: Content) -> some View {
-    content
-      .dropDestination(for: URL.self) { items, _ in
-        let validItems =
-          items
-          .filter { url in
-            guard let type = url.type else { return false }
-            return UTType.allowedComicTypes.contains(type)
-          }
-          .map(Comic.init(location:))
-        appState.importComics(validItems)
-        return true
-      }
   }
 }
 
